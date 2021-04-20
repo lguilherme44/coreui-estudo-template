@@ -1,29 +1,207 @@
-import React, { lazy } from 'react'
+import React, { lazy } from "react";
 import {
-  CBadge,
   CButton,
-  CButtonGroup,
   CCard,
   CCardBody,
   CCardFooter,
-  CCardHeader,
   CCol,
-  CProgress,
+  CContainer,
+  CForm,
+  CInput,
+  CInputGroup,
+  CInputGroupPrepend,
+  CInputGroupText,
+  CFormGroup,
   CRow,
-  CCallout
-} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+  CLabel,
+  CFormText,
+  CSwitch,
+  CSelect,
+} from "@coreui/react";
+import CIcon from "@coreui/icons-react";
 
-import MainChartExample from '../charts/MainChartExample.js'
+import MainChartExample from "../charts/MainChartExample.js";
 
-const WidgetsDropdown = lazy(() => import('../widgets/WidgetsDropdown.js'))
-const WidgetsBrand = lazy(() => import('../widgets/WidgetsBrand.js'))
+const WidgetsDropdown = lazy(() => import("../widgets/WidgetsDropdown.js"));
+const WidgetsBrand = lazy(() => import("../widgets/WidgetsBrand.js"));
+
+const modes = [
+  {},
+  { size: "sm" },
+  { size: "lg" },
+  { variant: "3d" },
+  { shape: "pill" },
+  { variant: "opposite" },
+  { variant: "outline", shape: "pill" },
+];
+const colors = [
+  "primary",
+  "success",
+  "warning",
+  "danger",
+  "info",
+  "dark",
+  "light",
+  "secondary",
+];
 
 const Dashboard = () => {
   return (
     <>
-      <WidgetsDropdown />
-      <CCard>
+      <CContainer fluid>
+        <CForm action="" method="post">
+          <CRow>
+            <CCol sm="6">
+              <CFormGroup>
+                <CLabel htmlFor="nf-email">Nome do Estabelecimento</CLabel>
+                <CInput
+                  type="email"
+                  id="nf-email"
+                  name="nf-email"
+                  placeholder=""
+                  autoComplete="email"
+                />
+              </CFormGroup>
+            </CCol>
+          </CRow>
+
+          <CRow>
+            <CCol sm="6" md="6">
+              <CFormGroup>
+                <CLabel htmlFor="nf-email">CEP</CLabel>
+                <CInput
+                  type="email"
+                  id="nf-email"
+                  name="nf-email"
+                  placeholder=""
+                  autoComplete="email"
+                />
+              </CFormGroup>
+            </CCol>
+
+            <CCol sm="3" md="3">
+              <CFormGroup>
+                <CLabel htmlFor="nf-password">Cidade</CLabel>
+                <CSelect custom name="ccmonth" id="ccmonth">
+                  <option value="1">Guararapes</option>
+                  <option value="2">Araçatuba</option>
+                  <option value="3">Birigui</option>
+                </CSelect>
+              </CFormGroup>
+            </CCol>
+          </CRow>
+
+          <CRow>
+            <CCol sm="6" md="6">
+              <CFormGroup>
+                <CLabel htmlFor="nf-email">Rua (Logradouro)</CLabel>
+                <CInput
+                  type="email"
+                  id="nf-email"
+                  name="nf-email"
+                  placeholder=""
+                  autoComplete="email"
+                />
+              </CFormGroup>
+            </CCol>
+
+            <CCol sm="3" md="3">
+              <CFormGroup>
+                <CLabel htmlFor="nf-password">Número</CLabel>
+                <CInput
+                  type="password"
+                  id="nf-password"
+                  name="nf-password"
+                  placeholder=""
+                  autoComplete="current-password"
+                />
+              </CFormGroup>
+            </CCol>
+          </CRow>
+
+          <CRow>
+            <CCol sm="6" md="6">
+              <CFormGroup>
+                <CLabel htmlFor="nf-email">Bairro</CLabel>
+                <CInput
+                  type="email"
+                  id="nf-email"
+                  name="nf-email"
+                  placeholder=""
+                  autoComplete="email"
+                />
+              </CFormGroup>
+            </CCol>
+
+            <CCol sm="3" md="3">
+              <CFormGroup>
+                <CLabel htmlFor="nf-password">UF</CLabel>
+                <CSelect custom name="ccmonth" id="ccmonth">
+                  <option value="1">SP</option>
+                  <option value="2">RS</option>
+                </CSelect>
+              </CFormGroup>
+            </CCol>
+          </CRow>
+
+          <CRow>
+            <CCol sm="6" md="6">
+              <CFormGroup>
+                <CLabel htmlFor="nf-email">Ponto de Referência</CLabel>
+                <CInput
+                  type="email"
+                  id="nf-email"
+                  name="nf-email"
+                  placeholder=""
+                  autoComplete="email"
+                />
+              </CFormGroup>
+            </CCol>
+          </CRow>
+
+          <CRow>
+            <CCol sm="6" md="6">
+              <CFormGroup>
+                <CLabel htmlFor="nf-email">
+                  Telefone/Celular Principal (com DDD)
+                </CLabel>
+                <CInput
+                  type="email"
+                  id="nf-email"
+                  name="nf-email"
+                  placeholder=""
+                  autoComplete="email"
+                />
+              </CFormGroup>
+            </CCol>
+          </CRow>
+
+          <CRow>
+            <CCol sm="12" md="12">
+              <CLabel htmlFor="nf-email">Aceita Cartão?</CLabel>
+            </CCol>
+          </CRow>
+
+          <CRow>
+            <CCol sm="12" md="12">
+              <CFormGroup>
+                <CSwitch
+                  variant="3d"
+                  color="dark"
+                  size="md"
+                />
+              </CFormGroup>
+            </CCol>
+
+            <CButton color="success" size="md" className="m-2">
+              Gravar
+            </CButton>
+          </CRow>
+        </CForm>
+      </CContainer>
+
+      {/* <WidgetsDropdown /> */}
+      {/* <CCard>
         <CCardBody>
           <CRow>
             <CCol sm="5">
@@ -105,11 +283,11 @@ const Dashboard = () => {
             </CCol>
           </CRow>
         </CCardFooter>
-      </CCard>
+      </CCard> */}
 
-      <WidgetsBrand withCharts/>
+      {/* <WidgetsBrand withCharts/> */}
 
-      <CRow>
+      {/* <CRow>
         <CCol>
           <CCard>
             <CCardHeader>
@@ -549,9 +727,9 @@ const Dashboard = () => {
             </CCardBody>
           </CCard>
         </CCol>
-      </CRow>
+      </CRow> */}
     </>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
